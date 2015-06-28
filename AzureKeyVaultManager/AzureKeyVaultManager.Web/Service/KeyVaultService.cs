@@ -184,19 +184,12 @@ namespace AzureKeyVaultManager.Web.Service
 
         private async Task<string> GetAccessTokenAsync(string authority, string resource, string scope)
         {
-            try
-            {
-                var clientCredential = new ClientCredential(_appId, _appSecret);
+            var clientCredential = new ClientCredential(_appId, _appSecret);
 
-                var authenticationContext = new AuthenticationContext(authority, false);
-                var result = await authenticationContext.AcquireTokenAsync(resource, clientCredential);
+            var authenticationContext = new AuthenticationContext(authority, false);
+            var result = await authenticationContext.AcquireTokenAsync(resource, clientCredential);
 
-                return result.AccessToken;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return result.AccessToken;
         }
     }
 }
