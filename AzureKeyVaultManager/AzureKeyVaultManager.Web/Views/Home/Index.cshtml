@@ -1,31 +1,30 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Azure Key Vault Manager";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h2>Azure Key Vault Manager</h2>
+    <p class="lead">Azure announced GA of the Key Vault couple of days back and if you're looking for a tool to manage you Key Vault this is it.</p>
+    <p class="btn">@Html.ActionLink("Start", "Index", "KeyVault")</p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <h3>Azure Key Vault links</h3>
+        <p><a href="http://azure.microsoft.com/en-us/services/key-vault/" target="_blank">Azure Key Vault &raquo;</a></p>
+        <p><a href="http://azure.microsoft.com/en-us/documentation/services/key-vault/" target="_blank">Documentation &raquo;</a></p>
+        <p><a href="http://azure.microsoft.com/en-us/pricing/details/key-vault/" target="_blank">Pricing &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h3>Other Links</h3>
+        <p><a href="https://thuruinhttp.wordpress.com" target="_blank">Blog &raquo;</a></p>
+        <p><a href="https://github.com/thuru/AzureKeyVaultManager" target="_blank">Source Code &raquo;</a></p>
+        <p><a href="https://thuruinhttp.wordpress.com/2015/05/30/azure-key-vault-setup-and-usage-scenarios/" target="_blank">Key Vault Explained &raquo;</a></p>
+        <p><a href="https://github.com/thuru/AzureKeyVaultSample/tree/master/AzureKeyVaultSample/PowerShellScript" target="_blank">Key Vault PowerShell &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <p><div class="fb-share-button" data-href="http://keyvaultmanager.azurewebsites.net/" data-layout="button_count"></div></p>
+        <p><div class="fb-like" data-href="http://keyvaultmanager.azurewebsites.net/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></p>
+
     </div>
 </div>
