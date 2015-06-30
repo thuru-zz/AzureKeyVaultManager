@@ -30,21 +30,17 @@ namespace AzureKeyVaultManager.Web.Service
         {
             var response = _keyVaultClient.GetSecretsAsync(_vaultUrl).GetAwaiter().GetResult();
             
-            var index = 1;
             var result = new List<KeyVaultSecret>();
 
             foreach (var secret in response.Value)
             {
                 result.Add(new KeyVaultSecret()
                 {
-                    Id = index,
                     SecretId = secret.Id,
-                    SecretName = secret.Identifier.Name,
+                    Name = secret.Identifier.Name,
                     CreatedOn = secret.Attributes.Created == null ? String.Empty : secret.Attributes.Created.Value.ToShortDateString(),
                     ExpiresOn = secret.Attributes.Expires == null ? String.Empty : secret.Attributes.Expires.Value.ToShortDateString()
                 });
-
-                index++;
             }
 
             while (!String.IsNullOrWhiteSpace(response.NextLink))
@@ -55,14 +51,11 @@ namespace AzureKeyVaultManager.Web.Service
                 {
                     result.Add(new KeyVaultSecret()
                     {
-                        Id = index,
                         SecretId = secret.Id,
-                        SecretName = secret.Identifier.Name,
+                        Name = secret.Identifier.Name,
                         CreatedOn = secret.Attributes.Created == null ? String.Empty : secret.Attributes.Created.Value.ToShortDateString(),
                         ExpiresOn = secret.Attributes.Expires == null ? String.Empty : secret.Attributes.Expires.Value.ToShortDateString()
                     });
-
-                    index++;
                 }
             }
 
@@ -75,21 +68,17 @@ namespace AzureKeyVaultManager.Web.Service
             var response = _keyVaultClient.GetSecretVersionsAsync(_vaultUrl, name).GetAwaiter().GetResult();
 
             var result = new List<KeyVaultSecret>();
-            int index = 1;
-
+          
             foreach (var secret in response.Value)
             {
                 result.Add(new KeyVaultSecret()
                 {
-                    Id = index,
                     SecretId = secret.Id,
-                    SecretName = secret.Identifier.Name,
+                    Name = secret.Identifier.Name,
                     Version = secret.Identifier.Version,
                     CreatedOn = secret.Attributes.Created == null ? String.Empty : secret.Attributes.Created.Value.ToShortDateString(),
                     ExpiresOn = secret.Attributes.Expires == null ? String.Empty : secret.Attributes.Expires.Value.ToShortDateString()
                 });
-
-                index++;
             }
 
 
@@ -101,15 +90,12 @@ namespace AzureKeyVaultManager.Web.Service
                 {
                     result.Add(new KeyVaultSecret()
                     {
-                        Id = index,
                         SecretId = secret.Id,
-                        SecretName = secret.Identifier.Name,
+                        Name = secret.Identifier.Name,
                         Version = secret.Identifier.Version,
                         CreatedOn = secret.Attributes.Created == null ? String.Empty : secret.Attributes.Created.Value.ToShortDateString(),
                         ExpiresOn = secret.Attributes.Expires == null ? String.Empty : secret.Attributes.Expires.Value.ToShortDateString()
                     });
-
-                    index++;
                 }
             }
 
@@ -123,7 +109,7 @@ namespace AzureKeyVaultManager.Web.Service
 
             return new KeyVaultSecret()
             {
-                SecretName = secret.SecretIdentifier.Name,
+                Name = secret.SecretIdentifier.Name,
                 Version = secret.SecretIdentifier.Version
             };
         }
@@ -143,19 +129,15 @@ namespace AzureKeyVaultManager.Web.Service
         {
             var response = _keyVaultClient.GetKeysAsync(_vaultUrl).GetAwaiter().GetResult();
             var result = new List<KeyVaultKey>();
-            int index = 1;
 
             foreach(var key in response.Value)
             {
                 result.Add(new KeyVaultKey()
                 {
-                    Id = index,
                     Name = key.Identifier.Name,
                     CreatedOn = key.Attributes.Created == null ? String.Empty : key.Attributes.Created.Value.ToShortDateString(),
                     ExpiresOn = key.Attributes.Expires == null ? String.Empty : key.Attributes.Expires.Value.ToShortDateString()
                 });
-
-                index++;
             }
 
             while(!String.IsNullOrWhiteSpace(response.NextLink))
@@ -166,13 +148,10 @@ namespace AzureKeyVaultManager.Web.Service
                 {
                     result.Add(new KeyVaultKey()
                     {
-                        Id = index,
                         Name = key.Identifier.Name,
                         CreatedOn = key.Attributes.Created == null ? String.Empty : key.Attributes.Created.Value.ToShortDateString(),
                         ExpiresOn = key.Attributes.Expires == null ? String.Empty : key.Attributes.Expires.Value.ToShortDateString()
                     });
-
-                    index++;
                 }
             }
 

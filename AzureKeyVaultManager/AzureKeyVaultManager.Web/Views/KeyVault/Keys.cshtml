@@ -24,19 +24,19 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@for (int i = 0; i < Model.Count(); i++){
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Id)
+           @(i + 1)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedOn)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).CreatedOn)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ExpiresOn)
+            @Html.DisplayFor(modelItem => Model.ElementAt(i).ExpiresOn)
         </td>
         <td>
         </td>

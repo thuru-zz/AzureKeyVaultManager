@@ -9,12 +9,11 @@ namespace AzureKeyVaultManager.Web.Models
 {
     public class KeyVaultSecret
     {
-        public int Id { get; set; }
         public string SecretId { get; set; }
 
         [Required]
         [DisplayName("Secret Name")]
-        public string SecretName { get; set; }
+        public string Name { get; set; }
 
         [DisplayName("Created On")]
         public string CreatedOn { get; set; }
